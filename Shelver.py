@@ -1,8 +1,10 @@
 import shelve
 import sys
 
+DEFAULT_SHELF = 'shelf.db'
 
-def shelve_variables(variables, filename):
+
+def shelve_variables(variables, filename=DEFAULT_SHELF):
     try:
         s = shelve.open(filename)
 
@@ -15,7 +17,7 @@ def shelve_variables(variables, filename):
         sys.stderr.write("Error writing to shelf file " + filename)
 
 
-def unshelve_variables(variables, filename):
+def unshelve_variables(variables, filename=DEFAULT_SHELF):
 
     try:
         s = shelve.open(filename)
